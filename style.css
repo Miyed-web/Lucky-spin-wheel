@@ -1,0 +1,88 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #181818;
+}
+.container{
+  position: relative;
+  height: 350px;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.container::before{
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 40px;
+  background: red;
+  top: 53px;
+  z-index: 10000;
+  border-radius: 50%;
+}
+.wheel{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #272eff;
+  border-radius: 50%;
+  transition: transform 5s ease-in-out;
+  overflow: hidden;
+}
+.wheel span{
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  left: calc(50% - 1px);
+  background: #272eff;
+  transform: rotate(calc(45deg * var(--i)));
+}
+.spinBtn{
+  position: absolute;
+  inset: 130px;
+  border-radius: 50%;
+  background: #272eff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  color: #fff;
+  font-size: 23px;
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+}
+ .wheel .number{
+  position: absolute;
+  inset: 0;
+  transform: rotate(22.5deg);
+}
+.wheel .number b{
+  position: absolute;
+  inset: 16px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.25em;
+  font-weight: 600;
+  transform: rotate(calc(45deg * var(--i)));
+}
+.wheel.inside{
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  transition: transform 5s ease-in-out;
+  transform: rotate(180deg);
+  background: #181818;
+  color: #fff;
+  font-size: 1.25em;
+  font-weight: 600;
+}
